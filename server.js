@@ -1,7 +1,9 @@
 let express = require('express');
 let orm = require('orm');
+
 let bodyParser=require('body-parser');
 let urlencodedParser = bodyParser.urlencoded({ extended: false });
+
 let app = express();
 
 app.use(express.static('Public'));
@@ -11,6 +13,7 @@ app.use(orm.express("sqlite:movie.db", {
     define: function (db, models, next) {
         /*评论的models*/
         models.T_comment = db.define("T_comment", {
+
             id:{type: 'number'},//评论的ID
             userid   : {type: 'text'}, //评论者的Id
             content  : {type: 'text'}, //评论内容
@@ -62,6 +65,7 @@ app.post("/movieDetails",urlencodedParser, function (req, res) {
     /*前端传入电影名*/
     let id=req.body.id;
     req.models.T_movie.find({id:id}, function (err, movies) {
+
         if (err) throw err;
         res.send(movies[0]);
     });
@@ -113,6 +117,7 @@ app.post("/getComment",urlencodedParser, function (req, res) {
 
 /*将信息初始化*/
 app.get("/init",urlencodedParser, function (req, res) {
+
     /*
         let id=parseInt(req.body.id);
     */
@@ -143,8 +148,24 @@ app.get("/init",urlencodedParser, function (req, res) {
     });
 });
 
+app.get('/login', function (req, res) {
+    let username = req.query.username;
+    let password = req.query.password;
+    req.models.T_users.find({name: username, pasword: password}, function (err, reply) {
+        if (err) {
+            console.log('error!');
+            throw err;
+        }
+        if (reply[0]) {
+            console.log('true');
+        }else{
+            console.log('false');
+        }
+    });
+});
 let server = app.listen(8081, function () {
     let host = server.address().address;
     let port = server.address().port;
     console.log("应用实例，访问地址为 http://%s:%s", host, port);
+
 });
