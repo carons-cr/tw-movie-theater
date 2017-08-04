@@ -2,7 +2,11 @@
 曹容
 */
 .cr-header .navbar{
-    border-radius: 0px;
+    border-radius: 0;
+}
+.cr-search-select{
+    overflow-x: hidden;
+    overflow-y: scroll;
 }
 /*
 杨涵轩
@@ -18,9 +22,24 @@
 .yhx-left-tag{
     padding:  0 25px 25px 25px;
 }
+.yhx-left-tag-contain{
+
+}
+.yhx-left-tag-contain a{
+    text-decoration: none;
+    line-height: 20px;
+    font-size: 12px;
+    margin: 2px;
+}
+.ysj-lable-active a{
+    color: white;
+}
 /*
 童天相
 */
+.myttx{
+    padding: 0 20px;
+}
 .ttx-right{
     padding-top: 25px;
     min-height: 800px;
@@ -89,12 +108,32 @@
 .gyf-my{
     padding: 0 20px;
 }
+.comment_item{
+    margin: 2px;
+    border-bottom: solid;
+    border-width: thin;
+    padding-bottom: 2px;
+}
+.comment_date{
+    float:right;
+}
+.comment_content{
+    clear: both;
+    margin-top: 2px;
+}
+#Cui-image a {
+    text-align: center;
+}
+
+#Cui-image image{
+    margin: 0 auto;
+    display:block;
+}
 @media (max-width: 768px) {
     .gyf-movie-photo img{
         width: 350px;
     }
 }
-
 @media(min-width:992px){
     .gyf-movie-photo img{
         width: 200px;
@@ -105,3 +144,9 @@
         width: 200px;
     }
 }
+@media(min-width: 1920px){
+    .gyf-movie-photo img{
+        width: 400px;
+    }
+}
+
