@@ -21,29 +21,13 @@ axios.get('/getMovie/' + myurl[1]).then(function (ans) {
         let movieid=ans.data[0].id
         $.post('/suggestMovies', { comment: movieSug,movieid:movieid }, function (ans) {
             let add = '';
-
-        // <div class="column">
-        //         <div class="ui fluid card">
-        //         <div class="image">
-        //         <img src="/images/avatar/large/daniel.jpg">
-        //         </div>
-        //         <div class="content">
-        //         <a class="header">丹尼尔 路易斯</a>
-        //     </div>
-        //     </div>
-        //     </div>
-
             for (let i = 0; i < 4; i++) {
-                add += `<div class="column Cui">
-                                <a class="ui fluid card" href="moviecontain.html?id=${ans[i].id}&name=${myurl[0]}">
-                                    <div class="image">
-                                        <img src="${ans[i].movieimg}" alt="${ans[i].name}" class="Cui-image"/>
-                                    </div>
-                                    <div class="content">
-                                        <span>${ans[i].name}</span>
-                                    </div>
+                add += `<div class="col-md-3">
+                                <a href="moviecontain.html?id=${ans[i].id}&name=${myurl[0]}">
+                                    <img src="${ans[i].movieimg}" alt="${ans[i].name}" class="center-block Cui-image"/>
+                                    <p style="text-align: center">${ans[i].name}</p>
                                 </a>
-                        </div>`
+                       </div>`
                 if (i === 3) {
                     $('#Cui-movie').append(add);
                 }
