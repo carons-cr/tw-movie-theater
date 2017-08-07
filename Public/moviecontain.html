@@ -19,50 +19,35 @@
 </head>
 
 <body onload="comment()">
-<header class="cr-header">
-    <nav class="navbar navbar-inverse">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-                        data-target="#bs-example-navbar-collapse-1"
-                        aria-expanded="false">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="index.html">无组的小影屋</a>
-            </div>
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
-                </ul>
-                <ul class="nav navbar-nav navbar-right ysjLogin">
-                    <li><a class="yhx-login" href="#">登录</a></li>
-                    <li><a class="yhx-signin" href="#">注册</a></li>
-                </ul>
-                <div class="navbar-form navbar-right">
-                    <div class="form-group">
-                        <select class="form-control cr-search-select " id="comment">
-                            <option role="presentation"><a href="#">全部电影</a></option>
-                        </select>
-                        <input type="text" class="form-control cr-myinput" placeholder="搜索电影">
+    <header class="cr-header">
+        <div class="ui pointing menu">
+            <a class="active item">
+                <i class="video icon"></i> 无组的小影屋
+            </a>
+            <div class="right menu">
+                <select class="form-control cr-search-select " id="comment">
+                    <option role="presentation"><a href="#">全部电影</a></option>
+                </select>
+                <div class="item">
+                    <div class="ui icon input">
+                        <input class="cr-myinput" type="text" placeholder="搜索...">
+                        <i class="search link icon cr-mysubmit"></i>
                     </div>
-                    <button class="btn btn-default cr-mysubmit"><span class="glyphicon glyphicon-search"></span>
-                    </button>
                 </div>
             </div>
+            <a class="item">
+                <i class="home icon"></i> 注册
+            </a>
+            <a class="item">
+                <i class="user icon"></i> 登录
+            </a>
         </div>
-    </nav>
-</header>
-<section>
-    <div class="container">
-        <div class="ui grid myttx">
-            <div class="five wide column gyf-movie-photo">
-                <div style="text-align: center">
-                    <span class="ui h2 tt" style="display: inline-block">
-                    </span><br/>
-                    <img class="movie-img ui small image" width="auto" height="auto"
-                         src="#" style="margin-left: 28%">
+    </header>
+    <section>
+        <div class="container">
+            <div class="panel panel-danger">
+                <div class="panel-heading gyf-panel-title">
+                    <h2 class="panel-heading-title"></h2>
                 </div>
 
 
@@ -104,7 +89,7 @@
                             </form>-->
                             <div class="alert alert-info" role="alert">
                                 <h3>电影推荐</h3>
-                                <div class="ui four column grid" id="Cui-movie">
+                                <div class="ui four column grid" id="Cui-movie ">
                                 </div>
                             </div>
                         </div>

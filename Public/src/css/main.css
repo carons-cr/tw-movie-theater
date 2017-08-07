@@ -1,11 +1,14 @@
 /*
 曹容
 */
-.cr-header .navbar{
-
+.cr-header {
+ margin-bottom: 0.5%;
 }
 .cr-search-select{
-
+   margin-top: 1.8%;
+}
+.cr-search-select option:hover{
+    background-color: black!important;
 }
 /*
 杨涵轩
