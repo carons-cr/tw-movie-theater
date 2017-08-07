@@ -113,9 +113,26 @@ app.get('/getMovie/:id',function (req,res) {
 /*得到此类别的所有电影  OK*/
 app.post("/classMovies",urlencodedParser, function (req, res) {
     let comment=req.body.comment;
-    req.models.T_movie.find({comment:orm.like("%"+comment+"%")}, function (err, movies) {
+    req.models.T_movie.find({comment:orm.like("%"+comment+"%")},function (err, movies) {
         if (err) throw err;
+        console.log(movies)
         res.send(movies);
+    });
+});
+/*根据类别获得电影推荐 OK*/
+app.post("/suggestMovies",urlencodedParser, function (req, res) {
+    let comment=req.body.comment;
+    let movieid=req.body.movieid;
+    req.models.T_movie.find({comment:orm.like("%"+comment+"%")},function (err, movies) {
+        let suggestMovies = movies.slice();
+        for (var i=0;i<movies.length;i++) {
+            if (String(movies[i].id)===movieid) {
+                suggestMovies.splice(i,1);
+                break
+            }
+        }
+        res.send(suggestMovies);
+        if (err) throw err;
     });
 });
 //获取所有电影 OK//
