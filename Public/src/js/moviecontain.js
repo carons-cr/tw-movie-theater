@@ -16,17 +16,19 @@ axios.get('/getMovie/' + myurl[1]).then(function (ans) {
     $('.gyf-detail').html(`  ` + ans.data[0].detail);
     $('.gyf-origin_title').html(`原著名称：` + ans.data[0].origin_title);
     if (ans.data[0].comment) {
-        let movieSug = ans.data[0].comment.split(',')[0];
-        $.post('/classMovies', { comment: movieSug }, function (ans) {
+        let index=Math.floor(Math.random() * 3 )
+        let movieSug = ans.data[0].comment.split(',')[index];
+        let movieid=ans.data[0].id
+        $.post('/suggestMovies', { comment: movieSug,movieid:movieid }, function (ans) {
             let add = '';
-            for (let i = 1; i < 5; i++) {
+            for (let i = 0; i < 4; i++) {
                 add += `<div class="col-md-3">
                                 <a href="moviecontain.html?id=${ans[i].id}&name=${myurl[0]}">
                                     <img src="${ans[i].movieimg}" alt="${ans[i].name}" class="center-block Cui-image"/>
                                     <p style="text-align: center">${ans[i].name}</p>
                                 </a>
                        </div>`
-                if (i === 4) {
+                if (i === 3) {
                     $('#Cui-movie').append(add);
                 }
             }
