@@ -2,11 +2,10 @@
 曹容
 */
 .cr-header .navbar{
-    border-radius: 0;
+
 }
 .cr-search-select{
-    overflow-x: hidden;
-    overflow-y: scroll;
+
 }
 /*
 杨涵轩
@@ -121,34 +120,13 @@
 .gyf-my{
     padding: 0 20px;
 }
-.comment_item{
-    margin: 2px;
-    border-bottom: solid;
-    border-width: thin;
-    padding-bottom: 5px;
-    padding-top:5px;
-}
-.comment_user{
-    margin-bottom: 5px;
-    font-size:18px;
-    font-family:楷体;
-}
-.comment_date{
-    float:right;
-}
-.comment_content{
-    clear: both;
-    margin-bottom: 3px;
-}
+
 #gyf_gundong{
-    overflow: hidden;
-}
-#gyf_third{
-    max-height: 214px;
+    max-height: 650px;
     overflow-x:hidden ;
     overflow-y: scroll;
 }
-#gyf_third::-webkit-scrollbar{
+#gyf_gundong::-webkit-scrollbar{
     display: none;
 }
 #Cui-image a {

@@ -16,17 +16,19 @@ axios.get('/getMovie/' + myurl[1]).then(function (ans) {
     $('.gyf-detail').html(`  ` + ans.data[0].detail);
     $('.gyf-origin_title').html(`原著名称：` + ans.data[0].origin_title);
     if (ans.data[0].comment) {
-        let movieSug = ans.data[0].comment.split(',')[0];
-        $.post('/classMovies', { comment: movieSug }, function (ans) {
+        let index=Math.floor(Math.random() * 3 )
+        let movieSug = ans.data[0].comment.split(',')[index];
+        let movieid=ans.data[0].id
+        $.post('/suggestMovies', { comment: movieSug,movieid:movieid }, function (ans) {
             let add = '';
-            for (let i = 1; i < 5; i++) {
+            for (let i = 0; i < 4; i++) {
                 add += `<div class="col-md-3">
                                 <a href="moviecontain.html?id=${ans[i].id}&name=${myurl[0]}">
                                     <img src="${ans[i].movieimg}" alt="${ans[i].name}" class="center-block Cui-image"/>
                                     <p style="text-align: center">${ans[i].name}</p>
                                 </a>
                        </div>`
-                if (i === 4) {
+                if (i === 3) {
                     $('#Cui-movie').append(add);
                 }
             }
@@ -42,26 +44,34 @@ axios.get('/allClassify').then(function (ans) {
 });
 
 function comment() {
+    console.log('success');
     let all = [], i = 0;
     $.post('/getComment', { movieid: myurl[1] }, function (response) {
         response = JSON.parse(response);
         response.forEach(function (value) {
-            all[i] = `<div class='comment_item' id=${i.toString()}>
-                       <div class="comment_user" id=${i.toString()}+'user'>
-                       ${value.username}
-                       </div>
-                       <div class="comment_date" id=${i.toString()}+'date'>
-                       ${value.date}
-                       </div>
-                       <div class="coment_content" id=${i.toString()}+'content'>
-                       ${value.content}
-                       </div>
-                </div>`;
+            all[i] = `<a class="avatar">
+                             <img src="../../img/index.png">
+                      </a>
+                      <div class="content">
+                          <a class="author">${value.username}</a>
+                             <div class="metadata">
+                                 <span class="date">${value.date}</span>
+                                 <div class="rating"><i class="star icon"></i> 5 Faves </div>
+                             </div>
+                             <div class="text">${value.content} </div>
+                              <div class="actions">
+                                     <a class="reply">Reply</a>
+                                     <a class="save">Save</a>
+                                     <a class="hide">Hide</a>
+                                     <a><i class="expand icon"></i> Full-screen </a>
+                               </div>
+                        </div>`;
             i++;
         });
-        $('#gyf_third').append(all);
+        $('#gyf_gundong').append(all);
     });
 }
+
 
 $(document).ready(function () {
     $(".yhx-movie-btn").on('click', function () {

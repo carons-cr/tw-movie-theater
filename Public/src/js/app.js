@@ -40,10 +40,9 @@ axios.get('/allClassify').then(function (ans) {
     $('#ttx-comment-first').after(str);
     let str2='';
     for(let i = 0; i<ans.data.length;i++){
-        str2+= `<option role="presentation"><a h
-        ref="#">${ans.data[i].commentcontent}</a></option>`
+        str2+= `<div class="item">${ans.data[i].commentcontent}</div>`
     }
-    $('.cr-search-select').append(str2);
+    $('.cr-menu').append(str2);
 });
 
 /*登录*/
