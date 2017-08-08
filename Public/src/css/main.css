@@ -43,6 +43,22 @@
     text-align: center;
     padding: 15px 0;
 }
+.ui.dropdown{
+    padding: 25px;
+}
+.ui.form .field{
+    width: 40%;
+    margin: 0 auto 1em!important;
+}
+.ui.modal>.actions{
+    text-align: center!important;
+}
+
+i.icon.archive:before {
+    content: "\f135"!important;
+}
+
+
 /*
 童天相
 */
