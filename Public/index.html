@@ -5,23 +5,85 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="./src/js/jquery-3.2.1.min.js"></script>
     <link rel="stylesheet" href="src/css/bootstrap.min.css">
     <link rel="stylesheet" href="src/semantic.min.css">
     <link rel="stylesheet" href="src/css/main.css">
-    <script src="./src/js/jquery-3.2.1.min.js"></script>
     <script src="./src/semantic.min.js"></script>
     <script src="./src/js/bootstrap.min.js"></script>
     <script src="./src/js/axios.min.js"></script>
     <script src="./src/js/bootbox.min.js"></script>
     <script src="src/js/jqPaginator.min.js"></script>
     <title>无组的小影屋</title>
+    <link rel="stylesheet" href="semantic.css">
+    <script src="semantic.js"></script>
 </head>
 
 <body>
+<!--注册的模态框-->
+<div class="ui basic modal" id="registermodal">
+    <div class="ui icon header">
+        <i class="archive icon"></i>
+        欢迎注册无组的电影小屋！
+    </div>
+
+    <form class="ui form">
+        <div class="field">
+            <input type="text" id="exampleInputName2" placeholder="用户名">
+        </div>
+        <div class="field">
+            <input type="password" id="exampleInputPassword2" placeholder="密码">
+        </div>
+    </form>
+
+    <div class="actions">
+        <div class="ui red basic cancel inverted button">
+            <i class="remove icon"></i>
+            取消
+        </div>
+        <div class="ui green ok inverted button" id="ysjregister">
+            <i class="checkmark icon"></i>
+            注册
+        </div>
+    </div>
+
+</div>
+<!--/*登录的模态框*/-->
+<div class="ui basic modal" id="loginmodal">
+    <div class="ui icon header">
+        <i class="archive icon"></i>
+        尊贵的电影屋用户,请登录！
+    </div>
+
+    <form class="ui form">
+        <div class="field">
+            <input type="text" id="exampleInputName1" placeholder="用户名">
+        </div>
+        <div class="field">
+            <input type="password" id="exampleInputPassword1" placeholder="密码">
+        </div>
+    </form>
+
+    <div class="actions" >
+        <div class="ui red basic cancel inverted button">
+            <i class="remove icon"></i>
+            取消
+        </div>
+        <div class="ui green ok inverted button" id="ysjlogin">
+            <i class="checkmark icon"></i>
+            登陆
+        </div>
+    </div>
+
+</div>
+
     <header class="cr-header">
         <div class="ui pointing menu">
             <a class="active item">
                 <i class="video icon"></i> 无组的小影屋
+            </a>
+            <a class="item glyphicon-resize-full" >
+                <i class="text-center" id="showuser">亲爱的游客，您好！</i>
             </a>
             <div class="right menu">
                 <div class="ui dropdown cr-search-select">
@@ -38,12 +100,13 @@
                     </div>
                 </div>
             </div>
-            <a class="item">
-                <i class="home icon"></i> 注册
-            </a>
-            <a class="item">
-                <i class="user icon"></i> 登录
-            </a>
+                    <a class="item" id="register">
+                        <i class="home icon" ></i> 注册
+                    </a>
+
+                    <a class="item" id="login">
+                        <i class="user icon"></i> 登录
+                    </a>
         </div>
     </header>
     <section>
@@ -80,12 +143,18 @@
         <hr/>
         <p class="text-info">© 2017 &nbsp;|&nbsp; 无组 &nbsp;&nbsp;all rights reserved&nbsp; | &nbsp;bulid&nbsp; in&nbsp; ThoughtWorks &nbsp;bootcamp</p>
     </footer>
-    <script>
-        $('.ui.dropdown')
-            .dropdown()
-        ;
-    </script>
-    <script src="./src/js/app.js"></script>
-</body>
 
+</body>
+<script>
+    $('.ui.dropdown')
+        .dropdown()
+    ;
+    $('.ui.modal')
+        .modal()
+    ;
+    $('.ui.basic.modal')
+        .modal()
+    ;
+</script>
+<script src="./src/js/app.js"></script>
 </html>
