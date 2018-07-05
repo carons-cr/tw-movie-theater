@@ -1,6 +1,6 @@
 function myonclickhrf(myid) {
-    let myname = $('.ysj-login-name').html();
-    if(myname){
+    let myname = $('#showuser').html().split('，')[1];
+    if(myname !== '您好'){
         window.location.href = "/moviecontain.html?id="+myid+"&name="+myname
     }else {
         window.location.href = "/moviecontain.html?id="+myid+"&name="
@@ -99,7 +99,7 @@ $('#ysjregister').click(function () {
 /*//////////////////////////////////////////////////////////////////////////*/
 $(document).ready(function () {
     $('.cr-mysubmit').on('click',function () {
-       let myselect = $('.cr-search-select').find("option:selected").html();
+       let myselect = $('.ui.dropdown').dropdown('get text');
        let myinput  = $('.cr-myinput').val();
        if(myinput){
            if(myselect === '全部电影'){
